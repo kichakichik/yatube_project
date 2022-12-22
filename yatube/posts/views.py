@@ -19,8 +19,8 @@ def group_posts(request, slug):
     NUMBER_OF_POSTS = 10
     template = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
-    # posts = Post.objects.filter(group=group)[:NUMBER_OF_POSTS]
-    posts = group.posts.all()[:NUMBER_OF_POSTS]
+    posts = Post.objects.filter(group=group)[:NUMBER_OF_POSTS]
+    # posts = group.posts.all()[:NUMBER_OF_POSTS]
     title = 'Записи сообщества ' + group.title
     context = {
         'group': group,

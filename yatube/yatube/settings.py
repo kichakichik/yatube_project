@@ -13,27 +13,8 @@ SECRET_KEY = '5g@g+s2=bt7wo-+8-jh)q+((9za8rnv3_uo7^omq=y6=vk4788'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-
 ALLOWED_HOSTS = []
 
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # Добавлено: Искать шаблоны на уровне проекта
-        'DIRS': [TEMPLATES_DIR],        
-        'APP_DIRS': True, 
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ]
-        },
-    }
-] 
 
 # Application definition
 
@@ -59,7 +40,22 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'yatube.urls'
 
-
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'yatube.wsgi.application'
 
@@ -94,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'auth.User'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
